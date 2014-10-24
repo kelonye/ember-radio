@@ -1,0 +1,7 @@
+{
+  "name": "ember-radio",
+  "private": true,
+  "devDependencies": {
+    "component-hooks": "0.2.5"
+  }
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      li{
+        list-style: none;
+        font-size: 20px;
+      }
+      li{
+        text-decoration: none;
+        color: #444;
+        cursor: pointer;
+      }
+      li.active{
+        color: rgba(46, 160, 24, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <script src='../public/public.js'></script>
+    <script data-template-name='index' type='text/x-handlebars'>
+      {{#each item in model}}
+      {{view App.SelectView value=item selected=controller.selected name='radios-1'}} {{item.name}}
+      <br>
+      {{/each}}
+    </script>
+    <script type='text/javascript'>
+      var select = require('ember-radio');
+      App = Em.Application.create();
+      App.SelectView = Em.View.extend(select, {
+        optionSelectPath: 'name'
+      });
+      App.IndexRoute = Em.Route.extend({
+        model: function(){
+          return [
+            'TJ',
+            'Guille',
+            'N8',
+            'Mojombo',
+            'Izs',
+            'Substack'
+          ].map(function(name){
+            return {
+              name: name
+            }
+          });
+        },
+        setupController: function(controller, model){
+          this._super(controller, model);
+          controller.set('selected', model[2]);
+        }
+      });
+    </script>
+  </body>
+</html>
