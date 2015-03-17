@@ -4,7 +4,7 @@
   "description": "Radio input view",
   "dependencies": {
     "kelonye/ember": "1.7.0",
-    "kelonye/ember-select": "0.0.4"
+    "kelonye/ember-select": "0.0.5"
   },
   "main": "lib/index.js",
   "scripts": [
