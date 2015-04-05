@@ -19,15 +19,17 @@
   <body>
     <script src='../public/public.js'></script>
     <script data-template-name='index' type='text/x-handlebars'>
+      <p>Selected: {{selected.name}}</p>
+      <br>
       {{#each item in model}}
-      {{view App.SelectView value=item selected=controller.selected name='radios-1'}} {{item.name}}
+      {{list-item value=item selected=selected name='radios-1'}} {{item.name}}
       <br>
       {{/each}}
     </script>
     <script type='text/javascript'>
       var select = require('ember-radio');
       App = Em.Application.create();
-      App.SelectView = Em.View.extend(select, {
+      App.ListItemComponent = Em.View.extend(select, {
         optionSelectPath: 'name'
       });
       App.IndexRoute = Em.Route.extend({
